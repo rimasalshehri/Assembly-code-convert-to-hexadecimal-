@@ -12,8 +12,6 @@ only accept the digits {0, 1, 2, 3, 4, 5, 6, 7}
 
 
 .data
-
-
 msg_read_sreg:	.asciiz "Enter three digit octa number \n"
 msg_read:	.asciiz "Enter the number \n"
 msg_enter_ab:	.asciiz "Enter a and b:\n"
@@ -28,25 +26,23 @@ lastline:	.asciiz ""
 	
 main:
 
-
-
-  				# printf("Enter initial values for registers $s0-$s7\n");
+# printf("Enter initial values for registers $s0-$s7\n");
   li	$v0, 4
   la	$a0, msg_read_sreg
   syscall
 
-  				# printf("Enter the numberf \n");
+# printf("Enter the numberf \n");
   li	$v0, 4
   la	$a0, msg_read
   syscall
-  				# read values for registers $s0-$s2here
+# read values for registers $s0-$s2here
   li	$v0, 5
   syscall
   move	$s0, $v0
   
 move $t2,$s0
   
-  ########################################  OCT to decimal #######################################
+########################################  OCT to decimal #######################################
   
       #the octal number is $t2
     li $t6,0 #remainder
